@@ -1,0 +1,8 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "dart.flutterRunAdditionalArgs": ["--no-sound-null-safety"],
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
