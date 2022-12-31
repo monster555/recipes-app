@@ -6,8 +6,6 @@ class RecipesDatasource {
 
   RecipesDatasource(this._client);
 
-  Future<Response> getRecipes() => _client.dio.get('/recipes');
-
   Future<Response> getRecipesForCategory(String categoryId) =>
       _client.dio.get('${Endpoint.filter}c=$categoryId');
 

@@ -16,6 +16,7 @@ class RecipesCubit extends Cubit<RecipesState> {
   // Let's keep a list of recipes to be able to filter them
   List<Recipe> recipesList = [];
 
+  // Get all categories
   Future<void> getCategories() async {
     emit(state.copyWith(
       loading: true,
@@ -36,6 +37,7 @@ class RecipesCubit extends Cubit<RecipesState> {
     }
   }
 
+  // Get a random recipe
   Future<void> getRandomRecipe() async {
     emit(state.copyWith(
       loadingRandom: true,
@@ -57,32 +59,7 @@ class RecipesCubit extends Cubit<RecipesState> {
     }
   }
 
-  Future<void> getRecipes() async {
-    emit(state.copyWith(
-      loading: true,
-      hasError: false,
-      errorMessage: '',
-    ));
-
-    try {
-      final recipes = await repository.getRecipes();
-      recipesList = recipes;
-      emit(state.copyWith(
-        loading: false,
-        recipes: recipes,
-        hasError: false,
-        errorMessage: '',
-      ));
-    } catch (e) {
-      log('[ERROR] - getRecipes: $e');
-      emit(state.copyWith(
-        loading: false,
-        hasError: true,
-        errorMessage: e.toString(),
-      ));
-    }
-  }
-
+  // Get all recipes for a given category
   Future<void> getRecipesForCategory(String categoryId) async {
     emit(state.copyWith(
       loading: true,
@@ -104,6 +81,7 @@ class RecipesCubit extends Cubit<RecipesState> {
     }
   }
 
+  // Get a single recipe for a given id
   Future<void> getRecipe(String id) async {
     emit(state.copyWith(
       loadingActual: true,
@@ -125,6 +103,7 @@ class RecipesCubit extends Cubit<RecipesState> {
     }
   }
 
+  // Filter recipes by query string
   void searchRecipe(String query) {
     final recipes = recipesList.where((recipe) {
       final title = recipe.name.toLowerCase();
