@@ -35,18 +35,6 @@ class RecipesRepositoryImplementation implements RecipesRepository {
   }
 
   @override
-  Future<List<Recipe>> getRecipes() async {
-    try {
-      final response = await _source.getRecipes();
-      return (response.data['drinks'] as List)
-          .map((e) => Recipe.fromJson(e))
-          .toList();
-    } catch (e) {
-      throw CustomException(e.toString());
-    }
-  }
-
-  @override
   Future<Recipe> getRecipe(String id) async {
     try {
       final response = await _source.getRecipe(id);
