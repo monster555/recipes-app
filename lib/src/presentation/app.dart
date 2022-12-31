@@ -5,7 +5,6 @@ import 'package:recipes_app/src/core/styles/color_schemes.g.dart';
 import 'package:recipes_app/src/core/styles/custom_color.g.dart';
 import 'package:recipes_app/src/data/repositories/recipe_repository_impl.dart';
 import 'package:recipes_app/src/presentation/bloc/recipes/recipes_cubit.dart';
-import 'package:recipes_app/src/presentation/bloc/settings/settings_cubit.dart';
 import 'package:recipes_app/src/presentation/pages/home/home.dart';
 
 class App extends StatelessWidget {
@@ -15,9 +14,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SettingsCubit>(
-          create: (_) => SettingsCubit(),
-        ),
         BlocProvider<RecipesCubit>(
           create: (_) => RecipesCubit(
             repository: RecipesRepositoryImplementation(),
