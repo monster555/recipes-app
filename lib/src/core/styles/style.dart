@@ -1,23 +1,16 @@
-// ignore_for_file: deprecated_member_use
-// This should be removed when the migration is complete.
-
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/core/styles/color_schemes.g.dart';
 
 class AppTheme {
   AppTheme._();
   static const danger = Colors.red;
-  static const mainColor = Colors.teal;
-  static Color mainColorDark = Colors.teal.shade400;
 
   static const borderRadius = BorderRadius.all(Radius.circular(12));
 
   static final ThemeData lightTheme = ThemeData(
-    fontFamily: 'Poppins',
     appBarTheme: AppBarTheme(
-      backwardsCompatibility: false,
       color: Colors.white,
-      shadowColor: mainColor.withOpacity(0.1),
+      shadowColor: lightColorScheme.primary.withOpacity(0.1),
       iconTheme: const IconThemeData(
         color: Colors.black87,
       ),
@@ -51,16 +44,16 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: mainColor,
-        shadowColor: mainColor.withOpacity(0.5),
+        foregroundColor: lightColorScheme.primary,
+        shadowColor: lightColorScheme.primary.withOpacity(0.5),
         shape: const RoundedRectangleBorder(
           borderRadius: borderRadius,
         ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      floatingLabelStyle: const TextStyle(
-        color: mainColor,
+      floatingLabelStyle: TextStyle(
+        color: lightColorScheme.primary,
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
@@ -90,8 +83,8 @@ class AppTheme {
         borderRadius: borderRadius,
       ),
     ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: mainColor,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: lightColorScheme.primary,
       elevation: 12,
     ),
     chipTheme: const ChipThemeData(
@@ -109,19 +102,17 @@ class AppTheme {
         borderRadius: borderRadius,
       ),
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
-        color: mainColor,
+        color: lightColorScheme.primary,
       ),
-      selectedItemColor: mainColor,
+      selectedItemColor: lightColorScheme.primary,
     ),
   );
 
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
-    fontFamily: 'Poppins',
     appBarTheme: const AppBarTheme(
-      backwardsCompatibility: false,
       color: Colors.black,
       iconTheme: IconThemeData(
         color: Colors.white,
@@ -162,7 +153,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelStyle: TextStyle(
-        color: mainColorDark,
+        color: darkColorScheme.primary,
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
@@ -192,8 +183,7 @@ class AppTheme {
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: mainColorDark,
-      foregroundColor: Colors.white,
+      backgroundColor: darkColorScheme.primary,
       elevation: 12,
     ),
     chipTheme: const ChipThemeData(
@@ -218,9 +208,9 @@ class AppTheme {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
-        color: mainColorDark,
+        color: darkColorScheme.primary,
       ),
-      selectedItemColor: mainColorDark,
+      selectedItemColor: darkColorScheme.primary,
     ),
   );
 }
