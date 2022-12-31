@@ -48,11 +48,13 @@ class App extends StatelessWidget {
               useMaterial3: true,
               colorScheme: lightScheme,
               extensions: [lightCustomColors],
+              fontFamily: 'Poppins',
             ),
             darkTheme: ThemeData(
               useMaterial3: true,
               colorScheme: darkScheme,
               extensions: [darkCustomColors],
+              fontFamily: 'Poppins',
             ),
             home: const Home(),
             builder: (BuildContext context, Widget? widget) => MediaQuery(
