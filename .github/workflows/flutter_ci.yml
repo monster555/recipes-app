@@ -1,0 +1,53 @@
+name: Flutter CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull request events but only for the main branch
+  pull_request:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: "Static code analysis"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.2
+
+      - name: Setup Java
+        uses: actions/setup-java@v3.4.1
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.6.2
+
+      - name: Cache dependencies
+        uses: actions/cache@v3.0.8
+        with:
+          path: |
+            $PUB_CACHE
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Lint analysis
+        run: flutter analyze
+
+  check-dart-formatting:
+    name: "Check Dart formatting"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.2
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.6.2
+
+      - name: Check Dart formatting
+        run: flutter format --set-exit-if-changed .
