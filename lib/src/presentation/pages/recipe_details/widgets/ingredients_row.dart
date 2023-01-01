@@ -40,10 +40,10 @@ class _IngredientRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
-          Text(ingredient.name),
+          Text(ingredient.name.trim()),
           const Spacer(),
           Text(
-            ingredient.measure,
+            ingredient.measure.trim(),
             style: Theme.of(context).textTheme.caption!.copyWith(
                 fontSize: Theme.of(context).textTheme.bodyText2!.fontSize),
           ),
