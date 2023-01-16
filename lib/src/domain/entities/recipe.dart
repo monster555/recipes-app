@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class Recipe {
   const Recipe({
     this.id = '',
@@ -267,13 +265,10 @@ class Ingredient {
   final String name;
   final String measure;
 
-  factory Ingredient.fromJson(Map<String, dynamic> json) {
-    log('ingredient json: $json');
-    return Ingredient(
-      name: json["name"],
-      measure: json["measure"],
-    );
-  }
+  factory Ingredient.fromJson(Map<String, dynamic> json) => Ingredient(
+        name: json["name"],
+        measure: json["measure"],
+      );
 
   @override
   String toString() => '''
