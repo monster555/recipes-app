@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
-  dynamic_color: ^1.5.4
+  dynamic_color: ^1.6.2
   animations: ^2.0.7
   dio: ^4.0.6
   shimmer: ^2.0.0
