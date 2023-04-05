@@ -25,8 +25,8 @@ class Instructions extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               recipe.instructions,
-              style: Theme.of(context).textTheme.caption!.copyWith(
-                    fontSize: Theme.of(context).textTheme.bodyText2!.fontSize,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
                   ),
               textAlign: TextAlign.justify,
             ),
