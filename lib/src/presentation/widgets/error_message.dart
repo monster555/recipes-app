@@ -10,7 +10,7 @@ class ErrorMessage extends StatelessWidget {
     return Center(
       child: Text(
         message,
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: Theme.of(context).colorScheme.error,
             ),
       ),

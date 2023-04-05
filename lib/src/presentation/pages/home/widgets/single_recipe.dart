@@ -55,7 +55,7 @@ class SingleRecipe extends StatelessWidget {
                         child: Text(
                           recipe.name,
                           style:
-                              Theme.of(context).textTheme.headline6!.copyWith(
+                              Theme.of(context).textTheme.titleLarge!.copyWith(
                                     color: Colors.white,
                                   ),
                           maxLines: 2,
