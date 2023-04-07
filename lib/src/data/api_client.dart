@@ -8,9 +8,9 @@ class ApiClient {
   static Dio createDio() {
     var dio = Dio(BaseOptions(
       baseUrl: baseUrl,
-      receiveTimeout: 15000,
-      connectTimeout: 15000,
-      sendTimeout: 15000,
+      receiveTimeout: const Duration(milliseconds: 15000),
+      connectTimeout: const Duration(milliseconds: 15000),
+      sendTimeout: const Duration(milliseconds: 15000),
     ));
     return dio;
   }
