@@ -20,6 +20,8 @@ class _RecipesListForCategoryState extends State<RecipesListForCategory> {
         return OpenContainer(
           transitionDuration: const Duration(milliseconds: 500),
           closedColor: Colors.transparent,
+          closedElevation: 0,
+          openElevation: 0,
           closedBuilder: (context, action) => GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () {

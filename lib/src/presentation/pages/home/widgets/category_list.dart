@@ -26,24 +26,27 @@ class CategoryList extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                      children: state.categories
-                          .map(
-                            (category) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: OpenContainer(
-                                transitionDuration:
-                                    const Duration(milliseconds: 500),
-                                closedColor: Colors.transparent,
-                                closedBuilder: (context, action) => Chip(
-                                  label: Text(category.name),
-                                ),
-                                openBuilder: (context, action) =>
-                                    RecipesForCategory(category.name),
+                    children: state.categories
+                        .map(
+                          (category) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: OpenContainer(
+                              transitionDuration:
+                                  const Duration(milliseconds: 500),
+                              closedElevation: 0,
+                              openElevation: 0,
+                              closedColor: Colors.transparent,
+                              openColor: Colors.transparent,
+                              closedBuilder: (context, action) => Chip(
+                                label: Text(category.name),
                               ),
+                              openBuilder: (context, action) =>
+                                  RecipesForCategory(category.name),
                             ),
-                          )
-                          .toList()),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
             ],
           ),
