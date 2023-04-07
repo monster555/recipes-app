@@ -112,4 +112,7 @@ class RecipesCubit extends Cubit<RecipesState> {
     }).toList();
     emit(state.copyWith(recipes: recipes));
   }
+
+  // Clear search
+  void clearSearch() => emit(state.copyWith(recipes: recipesList));
 }
