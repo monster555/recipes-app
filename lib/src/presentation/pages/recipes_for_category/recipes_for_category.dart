@@ -54,7 +54,10 @@ class _RecipesForCategoryState extends State<RecipesForCategory> {
           IconButton(
             icon:
                 showSearch ? const Icon(Icons.close) : const Icon(Icons.search),
-            onPressed: () => setState(() => showSearch = !showSearch),
+            onPressed: () {
+              cubit.clearSearch();
+              setState(() => showSearch = !showSearch);
+            },
           ),
         ],
       ),
