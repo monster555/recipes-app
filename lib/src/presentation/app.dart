@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipes_app/src/core/styles/color_schemes.g.dart';
 import 'package:recipes_app/src/core/styles/custom_color.g.dart';
+import 'package:recipes_app/src/core/styles/styles.dart';
 import 'package:recipes_app/src/data/repositories/recipe_repository_impl.dart';
 import 'package:recipes_app/src/presentation/bloc/recipes/recipes_cubit.dart';
 import 'package:recipes_app/src/presentation/pages/home/home.dart';
+
+/// The root widget of the application.
+///
+/// This widget is responsible for setting up the application theme, creating a
+/// [MultiBlocProvider] with a single [RecipesCubit], and wrapping the
+/// [MaterialApp] with a [DynamicColorBuilder].
+/// It also overrides the device's text scale factor to ensure consistent
+/// text sizes across devices.
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -25,6 +34,7 @@ class App extends StatelessWidget {
           ColorScheme lightScheme;
           ColorScheme darkScheme;
 
+          // If both light and dark color schemes are available, harmonize them.
           if (lightDynamic != null && darkDynamic != null) {
             lightScheme = lightDynamic.harmonized();
             lightCustomColors = lightCustomColors.harmonized(lightScheme);
@@ -38,23 +48,16 @@ class App extends StatelessWidget {
             darkScheme = darkColorScheme;
           }
 
+          // Build the [MaterialApp] with the dynamic color schemes and
+          // overridden text scale factor.
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              useMaterial3: true,
-              colorScheme: lightScheme,
-              extensions: [lightCustomColors],
-              fontFamily: 'Poppins',
-            ),
-            darkTheme: ThemeData(
-              useMaterial3: true,
-              colorScheme: darkScheme,
-              extensions: [darkCustomColors],
-              fontFamily: 'Poppins',
-            ),
+            theme: AppTheme.lightTheme(lightScheme),
+            darkTheme: AppTheme.darkTheme(darkScheme),
             home: const Home(),
             builder: (BuildContext context, Widget? widget) => MediaQuery(
-              data: MediaQuery.of(context) // Override device text scale factor
+              data: MediaQuery.of(context)
+                  // Override device text scale factor
                   .copyWith(textScaleFactor: 1, devicePixelRatio: 1),
               child: widget!,
             ),
