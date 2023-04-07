@@ -18,6 +18,8 @@ class RandomRecipeSection extends StatelessWidget {
               OpenContainer(
                 transitionDuration: const Duration(milliseconds: 500),
                 closedColor: Colors.transparent,
+                closedElevation: 0,
+                openElevation: 0,
                 closedBuilder: (context, action) {
                   return GestureDetector(
                       behavior: HitTestBehavior.opaque,
