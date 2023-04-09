@@ -5,7 +5,14 @@ To install Flutter, please visit [the official website](https://docs.flutter.dev
 
 ## Running the App
 Clone the repository to your local machine using either
-`git clone https://github.com/monster555/recipes-app.git` (HTTPS) or `git clone git@github.com:monster555/recipes-app.git` (SSH).<br>
+```bash
+git clone https://github.com/monster555/recipes-app.git
+```
+(HTTPS) or 
+```bash
+git clone git@github.com:monster555/recipes-app.git
+```
+(SSH).<br>
 Open the project in Android Studio or VSCode.<br>
 Connect a physical device or emulator to your computer.<br>
 In your IDE, select your target device.<br>
