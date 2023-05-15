@@ -32,9 +32,9 @@ class Home extends StatelessWidget {
             if (state.hasError) {
               return ErrorMessage(state.errorMessage!);
             }
-            return SingleChildScrollView(
+            return const SingleChildScrollView(
               child: Column(
-                children: const [
+                children: [
                   SizedBox(height: 32),
                   CategoryList(),
                   SizedBox(height: 16),
