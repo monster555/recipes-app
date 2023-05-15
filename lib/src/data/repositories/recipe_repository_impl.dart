@@ -50,7 +50,7 @@ class RecipesRepositoryImplementation implements RecipesRepository {
       final response = await _source.getRandomRecipe();
       return Recipe.fromJson(response.data['drinks'][0]);
     } catch (e) {
-      throw CustomException(3.toString());
+      throw CustomException(e.toString());
     }
   }
 }
