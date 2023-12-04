@@ -58,7 +58,10 @@ class App extends StatelessWidget {
             builder: (BuildContext context, Widget? widget) => MediaQuery(
               data: MediaQuery.of(context)
                   // Override device text scale factor
-                  .copyWith(textScaleFactor: 1, devicePixelRatio: 1),
+                  .copyWith(
+                devicePixelRatio: 1,
+                textScaler: const TextScaler.linear(1),
+              ),
               child: widget!,
             ),
           );
