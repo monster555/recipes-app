@@ -28,6 +28,8 @@ class _ShimmerImageState extends State<ShimmerImage> {
   // Declare our network image
   late NetworkImage networkImage;
 
+  ColorScheme get colorScheme => Theme.of(context).colorScheme;
+
   // Update our ready flag when the image is loaded
   void _updateImage(ImageInfo imageInfo, bool synchronousCall) {
     if (!mounted) return;
@@ -59,9 +61,8 @@ class _ShimmerImageState extends State<ShimmerImage> {
             height: widget.height,
             width: widget.width,
             child: Shimmer.fromColors(
-              baseColor: Theme.of(context).colorScheme.outline.withOpacity(.1),
-              highlightColor:
-                  Theme.of(context).colorScheme.outline.withOpacity(.3),
+              baseColor: colorScheme.outline.withOpacity(.1),
+              highlightColor: colorScheme.outline.withOpacity(.3),
               child: Container(
                 height: widget.height,
                 width: widget.width,
