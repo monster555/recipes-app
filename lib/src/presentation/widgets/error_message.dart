@@ -7,12 +7,14 @@ class ErrorMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Center(
       child: Text(
         message,
-        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-              color: Theme.of(context).colorScheme.error,
-            ),
+        style: theme.textTheme.bodyLarge!.copyWith(
+          color: theme.colorScheme.error,
+        ),
       ),
     );
   }

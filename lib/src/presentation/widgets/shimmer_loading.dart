@@ -20,6 +20,8 @@ class ShimmerLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       height: height,
       width: width,
@@ -27,8 +29,8 @@ class ShimmerLoading extends StatelessWidget {
         borderRadius: AppConstants.borderRadius,
       ),
       child: Shimmer.fromColors(
-        baseColor: Theme.of(context).colorScheme.outline.withOpacity(.1),
-        highlightColor: Theme.of(context).colorScheme.outline.withOpacity(.3),
+        baseColor: colorScheme.outline.withOpacity(.1),
+        highlightColor: colorScheme.outline.withOpacity(.3),
         child: Container(
           height: height,
           width: width,
